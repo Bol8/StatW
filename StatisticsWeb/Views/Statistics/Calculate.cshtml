@@ -1,0 +1,18 @@
+﻿@model Domain.Models.ProgResultList
+
+<div class="row">
+    <div class="col-md-12 ContainerResults">
+
+        @foreach (var result in Model.getList())
+        {
+            <div class="col-md-3">
+                <p>@Html.DisplayNameFor(x => result.MatchsPlayed) : @Html.DisplayFor(x => result.MatchsPlayed)</p>
+                <p>@Html.DisplayNameFor(x => result.HomePercent) : @Html.DisplayFor(x => result.HomePercent)%</p>
+                <p>@Html.DisplayNameFor(x => result.AwayPercent) : @Html.DisplayFor(x => result.AwayPercent)%</p>
+                <p>@Html.DisplayNameFor(x => result.TotalPercent) : @Html.DisplayFor(x => result.TotalPercent)%</p>
+                <p>@Html.DisplayNameFor(x => result.Share) : @Html.DisplayFor(x => result.Share)</p>
+            </div>
+        }
+
+    </div>
+</div>
