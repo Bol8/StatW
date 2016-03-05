@@ -37,11 +37,11 @@ namespace Domain.Manage
 
 
 
-        public List<StatisticsTeam> TotalResults()
+        public List<StatisticsTeam> TotalResults(string league)
         {
             cEquipo = new cEquipo();
 
-            var teams = cEquipo.getTeams();
+            var teams = cEquipo.getTeams(league);
 
             List<StatisticsTeam> list = new List<StatisticsTeam>();
 
@@ -56,11 +56,11 @@ namespace Domain.Manage
 
 
 
-        public List<StatisticsTeam> HomeResults()
+        public List<StatisticsTeam> HomeResults(string league)
         {
             cEquipo = new cEquipo();
 
-            var teams = cEquipo.getTeams();
+            var teams = cEquipo.getTeams(league);
 
             List<StatisticsTeam> list = new List<StatisticsTeam>();
 
@@ -75,11 +75,11 @@ namespace Domain.Manage
 
 
 
-        public List<StatisticsTeam> AwayResults()
+        public List<StatisticsTeam> AwayResults(string league)
         {
             cEquipo = new cEquipo();
 
-            var teams = cEquipo.getTeams();
+            var teams = cEquipo.getTeams(league);
 
             List<StatisticsTeam> list = new List<StatisticsTeam>();
 
@@ -102,9 +102,9 @@ namespace Domain.Manage
         }
 
 
-        public Prognostic goPrognostic()
+        public Prognostic goPrognostic(string league)
         {
-            Prognostic prognostic = new Prognostic();
+            Prognostic prognostic = new Prognostic(league);
 
             return prognostic;
         }
@@ -203,7 +203,13 @@ namespace Domain.Manage
         {
             var result = ((homePercent + awayPercent) / 2);
             var p = result / 100;
-            var n = 10 / p;
+            decimal n = 10;
+
+            if (p != 0)
+            {
+                 n = 10 / p;
+            } 
+
             var share = n / 10;
 
             ProgResult prog = new ProgResult

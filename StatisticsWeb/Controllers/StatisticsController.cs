@@ -13,35 +13,50 @@ namespace StatisticsWeb.Controllers
     {
         AppControler appControl = new AppControler();
 
-        public ActionResult Index()
+        public ActionResult Index(string league)
         {
-            return View(appControl.goPrognostic());
+            return View(appControl.goPrognostic(league));
         }
 
 
-        [HttpGet]
-        public ActionResult Calculate()
-        {
-            var prog = new ProgResult();
+        //[HttpGet]
+        //public ActionResult Calculate()
+        //{
+        //   // var prog = new ProgResult();
 
-            return PartialView(prog);
-        }
+        //    return PartialView();
+        //}
 
 
         [HttpPost]
-        public ActionResult Calculate(Prognostic prognostic)
+        public ActionResult Pronostico(Prognostic prognostic)
         {
             if (!Request.IsAjaxRequest()) return HttpNotFound();
             var progResults = new ProgResultList();
 
             progResults.Add(appControl.calculateShare(prognostic));
-            progResults.Add(appControl.calculateShare(prognostic,8));
-            progResults.Add(appControl.calculateShare(prognostic,6));
-            progResults.Add(appControl.calculateShare(prognostic,4));
-           
-            
-            return PartialView(progResults);
+            progResults.Add(appControl.calculateShare(prognostic, 8));
+            progResults.Add(appControl.calculateShare(prognostic, 6));
+            progResults.Add(appControl.calculateShare(prognostic, 4));
+
+            return PartialView("Calculate", progResults);
         }
+
+
+
+        //[HttpPost]
+        //public ActionResult Calculator(Prognostic prognostic)
+        //{
+        //    if (!Request.IsAjaxRequest()) return HttpNotFound();
+        //    var progResults = new ProgResultList();
+
+        //    progResults.Add(appControl.calculateShare(prognostic));
+        //    progResults.Add(appControl.calculateShare(prognostic,8));
+        //    progResults.Add(appControl.calculateShare(prognostic,6));
+        //    progResults.Add(appControl.calculateShare(prognostic,4));
+
+        //    return PartialView("Calculate", progResults);
+        //}
         
     }
 }

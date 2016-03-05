@@ -42,7 +42,6 @@ namespace Domain.Converters
 
                     if (!isOk) return false;
                 }
-
             }
 
             return true;
@@ -52,11 +51,14 @@ namespace Domain.Converters
 
         public List<Equipos> getTeams()
         {
-
-
             return gEquipo.getElements();
         }
-       
+
+        public List<Equipos> getTeams(string league)
+        {
+            return gEquipo.getElements(league);
+        }
+
 
 
     }

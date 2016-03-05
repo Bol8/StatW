@@ -23,14 +23,18 @@ namespace Domain.Models
         public SelectList ResultsList { get; set; }
         public string result { get; set; }
 
-        public Prognostic()
+
+
+        public Prognostic() { }
+
+        public Prognostic(string league)
         {
             dB = new FootbalEntities();
             Results = new List<string> {"1","X","2"};
 
             ResultsList = new SelectList(Results);
-            HomeTeamList = new SelectList(dB.Equipos.OrderBy(x => x.Nombre), "Nombre", "Nombre");
-            AwayTeamList = new SelectList(dB.Equipos.OrderBy(x => x.Nombre), "Nombre", "Nombre");
+            HomeTeamList = new SelectList(dB.Equipos.OrderBy(x => x.Nombre).Where(x => x.Liga.Equals(league)), "Nombre", "Nombre");
+            AwayTeamList = new SelectList(dB.Equipos.OrderBy(x => x.Nombre).Where(x => x.Liga.Equals(league)), "Nombre", "Nombre");
         }
 
 

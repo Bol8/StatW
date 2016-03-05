@@ -12,11 +12,19 @@ namespace Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class Equipos
+    public partial class Temporada
     {
-        public string Nombre { get; set; }
-        public string Liga { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Temporada()
+        {
+            this.Ligas = new HashSet<Liga>();
+        }
     
-        public virtual Liga Liga1 { get; set; }
+        public int IdTemporada { get; set; }
+        public string Nombre { get; set; }
+        public string Año { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Liga> Ligas { get; set; }
     }
 }

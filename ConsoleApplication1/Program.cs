@@ -9,9 +9,9 @@ namespace ConsoleApplication1
         private static void Main(string[] args)
         {
             gPartido gPartido = new gPartido();
-            string path = @"C:\Users\Oscar\Downloads\SP1.csv";
+           // string path = @"C:\Users\Oscar\Downloads\SP1.csv";
 
-            var lines = Manage.getData(path);
+            var lines = AppManage.getData();
 
             //foreach (var line in lines)
             //{
@@ -20,8 +20,8 @@ namespace ConsoleApplication1
 
             for (int i = 1; i < lines.Length; i++)
             {
-                var data = Manage.SubArray(lines[i].Split(','), 1, 6);
-                var partido = Manage.createMatch(data);
+                var data = AppManage.SubArray(lines[i].Split(','), 0, 6);
+                var partido = AppManage.createMatch(data);
                 gPartido.save(partido);
             }
 

@@ -18,7 +18,7 @@ namespace Domain.Models
         [Display(Name = "Away percent")]
         public decimal AwayPercent { get; set; }
 
-        [Display(Name = "Total percent ([Hp + Ap]/2)")]
+        [Display(Name = "Total percent")]
         public decimal TotalPercent { get; set; }
 
         [Display(Name = "Share")]

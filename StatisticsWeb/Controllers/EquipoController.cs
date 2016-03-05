@@ -10,21 +10,23 @@ namespace StatisticsWeb.Controllers
     public class EquipoController : Controller
     {
         AppControler appControl = new AppControler();
-
         
-        public ActionResult Index()
+        public ActionResult Index(string league)
         {
-            return View(appControl.TotalResults().OrderByDescending(x=> x.Points));
+            ViewBag.League = league;
+            return View(appControl.TotalResults(league).OrderByDescending(x=> x.Points));
         }
 
-        public ActionResult HomeResults()
+        public ActionResult HomeResults(string league)
         {
-            return View(appControl.HomeResults().OrderByDescending(x => x.Points));
+            ViewBag.League = league;
+            return View(appControl.HomeResults(league).OrderByDescending(x => x.Points));
         }
 
-        public ActionResult AwayResults()
+        public ActionResult AwayResults(string league)
         {
-            return View(appControl.AwayResults().OrderByDescending(x => x.Points));
+            ViewBag.League = league;
+            return View(appControl.AwayResults(league).OrderByDescending(x => x.Points));
         }
 
         public ActionResult AddTeams()

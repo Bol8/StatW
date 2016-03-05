@@ -3,8 +3,8 @@
 
 <div class="MyContent">
     <ul class="nav nav-tabs">
-        <li>@Html.ActionLink("Total", "Index", "Equipo", null, new { @class = "btn btn-sm" })</li>
-        <li >@Html.ActionLink("Home", "HomeResults", "Equipo", null, new { @class = "btn btn-sm" })</li>
+        <li>@Html.ActionLink("Total", "Index", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
+        <li >@Html.ActionLink("Home", "HomeResults", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
         <li class="active">@Html.ActionLink("Away", "AwayResult", "Equipo", null, new { @class = "btn btn-sm" })</li>
     </ul>
 

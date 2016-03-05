@@ -71,6 +71,12 @@ namespace Domain.Manage
         }
 
 
+        public bool exist(DateTime date, string league,string homeTeam)
+        {
+            var isOk = db.Partidos.Where(x => x.Date == date && x.Liga.Equals(league) && x.HomeTeam.Equals(homeTeam)).FirstOrDefault();
+            
+            return (isOk != null);
+        }
 
 
         public bool save(Partido input)

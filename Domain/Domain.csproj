@@ -68,14 +68,16 @@
     <Compile Include="Interfaces\ICrud.cs" />
     <Compile Include="Manage\AppControler.cs" />
     <Compile Include="Manage\gEquipo.cs" />
+    <Compile Include="Manage\gLeague.cs" />
     <Compile Include="Manage\gPartido.cs" />
-    <Compile Include="Manage\Manage.cs" />
+    <Compile Include="Manage\AppManage.cs" />
     <Compile Include="Manage\StatisticsCalculator.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Prognostic.cs" />
     <Compile Include="Models\ProgResult.cs" />
     <Compile Include="Models\ProgResultList.cs" />
     <Compile Include="Models\StatisticsTeam.cs" />
+    <Compile Include="Models\TeamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

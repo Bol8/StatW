@@ -21,5 +21,8 @@ namespace Repository
         public int FTAG { get; set; }
         public System.DateTime Date { get; set; }
         public string FTR { get; set; }
+        public string Liga { get; set; }
+    
+        public virtual Liga Liga1 { get; set; }
     }
 }
