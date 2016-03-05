@@ -37,7 +37,7 @@ namespace StatisticsWeb.Controllers
             progResults.Add(appControl.calculateShare(prognostic));
             progResults.Add(appControl.calculateShare(prognostic, 8));
             progResults.Add(appControl.calculateShare(prognostic, 6));
-            progResults.Add(appControl.calculateShare(prognostic, 4));
+            progResults.Add(appControl.calculateShare(prognostic, 3));
 
             return PartialView("Calculate", progResults);
         }

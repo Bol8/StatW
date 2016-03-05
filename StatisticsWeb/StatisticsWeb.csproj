@@ -185,6 +185,17 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\Bundesliga-Logo.png" />
+    <Content Include="Imagenes\Eredivise.jpg" />
+    <Content Include="Imagenes\JupilerLeague.jpg" />
+    <Content Include="Imagenes\Liga-BBVA-2015-2016.png" />
+    <Content Include="Imagenes\LigaGrecia.jpg" />
+    <Content Include="Imagenes\LigaPortugal.png" />
+    <Content Include="Imagenes\Ligue1.jpg" />
+    <Content Include="Imagenes\PremierLeague_400x400.jpg" />
+    <Content Include="Imagenes\ScottishPremier.jpg" />
+    <Content Include="Imagenes\SerieA.jpg" />
+    <Content Include="Imagenes\TurkCell.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Home.pubxml" />

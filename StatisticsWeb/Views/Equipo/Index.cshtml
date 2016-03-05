@@ -4,8 +4,10 @@
 <div class="MyContent">
     <ul class="nav nav-tabs">
         <li class="active">@Html.ActionLink("Total", "Index", "Equipo", null, new { @class = "btn btn-sm" })</li>
-        <li>@Html.ActionLink("Home", "HomeResults", "Equipo", new { league = ViewBag.League}, new { @class = "btn btn-sm" })</li>
-        <li>@Html.ActionLink("Away", "AwayResult", "Equipo", new { league = ViewBag.League}, new { @class = "btn btn-sm" })</li>
+        <li>@Html.ActionLink("Home", "HomeResults", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
+        <li>@Html.ActionLink("Away", "AwayResult", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
+        <li>@Html.ActionLink("Prognostics", "Index", "Statistics", new { league = ViewBag.League }, null)</li>
+
     </ul>
 
     <table class="table">
@@ -38,7 +40,7 @@
                     <th>@Html.DisplayFor(x => item.Points)</th>
                     <td>
                         @*@Html.ActionLink("Details", "Details", new { team = item.Team }) |*@
-                        @Html.ActionLink("Matchs", "TeamMatchs", new { team = item.Team }) 
+                        @Html.ActionLink("Matchs", "TeamMatchs", new { team = item.Team })
                     </td>
                 </tr>
             }
@@ -47,4 +49,3 @@
 
     </table>
 </div>
-

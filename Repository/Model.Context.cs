@@ -27,7 +27,7 @@ namespace Repository
     
         public virtual DbSet<Partido> Partidos { get; set; }
         public virtual DbSet<Equipos> Equipos { get; set; }
-        public virtual DbSet<Liga> Ligas { get; set; }
         public virtual DbSet<Temporada> Temporadas { get; set; }
+        public virtual DbSet<Liga> Ligas { get; set; }
     }
 }

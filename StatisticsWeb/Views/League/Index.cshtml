@@ -3,7 +3,27 @@
 @*<p>
     @Html.ActionLink("Actualizar", "Update","AppManage")
 </p>*@
-<table class="table">
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <a href="@Url.Action("Index","Equipo", new { league = item.IdLiga })">
+                <img class="MyImage" src="@item.Imagen" alt="...">
+            </a>
+            @*<div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>*@
+        </div>
+    </div>
+}
+
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -20,7 +40,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @*@Html.DisplayFor(modelItem => item.Nombre)*@
+            @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Pais)
@@ -31,9 +51,9 @@
         <td>
             @Html.ActionLink("Teams", "Index","Equipo", new { league = item.IdLiga },null) |
             @Html.ActionLink("Prognostics","Index", "Statistics", new { league = item.IdLiga },null) 
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.IdLiga })*@
-        </td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdLiga })
+        @*</td>
     </tr>
 }
 
-</table>
+</table>*@

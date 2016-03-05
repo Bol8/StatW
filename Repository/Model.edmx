@@ -20,7 +20,7 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Temporada" Type="int" />
           <Property Name="Pais" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Imagen" Type="varbinary" MaxLength="50" />
+          <Property Name="Imagen" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Partidos">
           <Key>
@@ -118,21 +118,21 @@
         <EntityContainer Name="FootbalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Partidos" EntityType="Self.Partido" />
           <EntitySet Name="Equipos" EntityType="FootbalModel.Equipos" />
-          <EntitySet Name="Ligas" EntityType="FootbalModel.Liga" />
           <EntitySet Name="Temporadas" EntityType="FootbalModel.Temporada" />
-          <AssociationSet Name="FK_Ligas_Temporadas" Association="FootbalModel.FK_Ligas_Temporadas">
-            <End Role="Temporada" EntitySet="Temporadas" />
-            <End Role="Liga" EntitySet="Ligas" />
-          </AssociationSet>
+          <EntitySet Name="Ligas" EntityType="FootbalModel.Liga" />
           <AssociationSet Name="FK_Equipos_Ligas" Association="FootbalModel.FK_Equipos_Ligas">
             <End Role="Liga" EntitySet="Ligas" />
             <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ligas_Temporadas" Association="FootbalModel.FK_Ligas_Temporadas">
+            <End Role="Temporada" EntitySet="Temporadas" />
+            <End Role="Liga" EntitySet="Ligas" />
           </AssociationSet>
           <AssociationSet Name="FK_Partidos_Ligas" Association="FootbalModel.FK_Partidos_Ligas">
             <End Role="Liga" EntitySet="Ligas" />
             <End Role="Partido" EntitySet="Partidos" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Equipos">
           <Key>
             <PropertyRef Name="Nombre" />
@@ -140,19 +140,6 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Liga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Liga1" Relationship="FootbalModel.FK_Equipos_Ligas" FromRole="Equipos" ToRole="Liga" />
-        </EntityType>
-        <EntityType Name="Liga">
-          <Key>
-            <PropertyRef Name="IdLiga" />
-          </Key>
-          <Property Name="IdLiga" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Temporada" Type="Int32" />
-          <Property Name="Pais" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Imagen" Type="Binary" MaxLength="50" FixedLength="false" />
-          <NavigationProperty Name="Temporada1" Relationship="FootbalModel.FK_Ligas_Temporadas" FromRole="Liga" ToRole="Temporada" />
-          <NavigationProperty Name="Equipos" Relationship="FootbalModel.FK_Equipos_Ligas" FromRole="Liga" ToRole="Equipos" />
-          <NavigationProperty Name="Partidos" Relationship="FootbalModel.FK_Partidos_Ligas" FromRole="Liga" ToRole="Partido" />
         </EntityType>
         <EntityType Name="Temporada">
           <Key>
@@ -163,18 +150,19 @@
           <Property Name="Año" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Ligas" Relationship="FootbalModel.FK_Ligas_Temporadas" FromRole="Temporada" ToRole="Liga" />
         </EntityType>
-        <Association Name="FK_Ligas_Temporadas">
-          <End Type="FootbalModel.Temporada" Role="Temporada" Multiplicity="0..1" />
-          <End Type="FootbalModel.Liga" Role="Liga" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Temporada">
-              <PropertyRef Name="IdTemporada" />
-            </Principal>
-            <Dependent Role="Liga">
-              <PropertyRef Name="Temporada" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="Liga">
+          <Key>
+            <PropertyRef Name="IdLiga" />
+          </Key>
+          <Property Name="IdLiga" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Temporada" Type="Int32" />
+          <Property Name="Pais" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Equipos" Relationship="FootbalModel.FK_Equipos_Ligas" FromRole="Liga" ToRole="Equipos" />
+          <NavigationProperty Name="Temporada1" Relationship="FootbalModel.FK_Ligas_Temporadas" FromRole="Liga" ToRole="Temporada" />
+          <NavigationProperty Name="Partidos" Relationship="FootbalModel.FK_Partidos_Ligas" FromRole="Liga" ToRole="Partido" />
+        </EntityType>
         <Association Name="FK_Equipos_Ligas">
           <End Type="FootbalModel.Liga" Role="Liga" Multiplicity="0..1" />
           <End Type="FootbalModel.Equipos" Role="Equipos" Multiplicity="*" />
@@ -184,6 +172,18 @@
             </Principal>
             <Dependent Role="Equipos">
               <PropertyRef Name="Liga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ligas_Temporadas">
+          <End Type="FootbalModel.Temporada" Role="Temporada" Multiplicity="0..1" />
+          <End Type="FootbalModel.Liga" Role="Liga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Temporada">
+              <PropertyRef Name="IdTemporada" />
+            </Principal>
+            <Dependent Role="Liga">
+              <PropertyRef Name="Temporada" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -199,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -227,6 +227,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Temporadas">
+            <EntityTypeMapping TypeName="FootbalModel.Temporada">
+              <MappingFragment StoreEntitySet="Temporadas">
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdTemporada" ColumnName="IdTemporada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Ligas">
             <EntityTypeMapping TypeName="FootbalModel.Liga">
               <MappingFragment StoreEntitySet="Ligas">
@@ -235,15 +244,6 @@
                 <ScalarProperty Name="Temporada" ColumnName="Temporada" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IdLiga" ColumnName="IdLiga" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Temporadas">
-            <EntityTypeMapping TypeName="FootbalModel.Temporada">
-              <MappingFragment StoreEntitySet="Temporadas">
-                <ScalarProperty Name="Año" ColumnName="Año" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="IdTemporada" ColumnName="IdTemporada" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
