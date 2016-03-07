@@ -11,19 +11,19 @@ namespace ConsoleApplication1
             gPartido gPartido = new gPartido();
            // string path = @"C:\Users\Oscar\Downloads\SP1.csv";
 
-            var lines = AppManage.getData();
+           // var lines = AppManage.getData();
 
             //foreach (var line in lines)
             //{
             //    var data = Manage.SubArray(line.Split(','), 1, 6);
             //}
 
-            for (int i = 1; i < lines.Length; i++)
-            {
-                var data = AppManage.SubArray(lines[i].Split(','), 0, 6);
-                var partido = AppManage.createMatch(data);
-                gPartido.save(partido);
-            }
+            //for (int i = 1; i < lines.Length; i++)
+            //{
+            //    var data = AppManage.SubArray(lines[i].Split(','), 0, 6);
+            //    var partido = AppManage.createMatch(data);
+            //    gPartido.save(partido);
+            //}
 
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
