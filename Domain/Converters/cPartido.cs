@@ -51,7 +51,7 @@ namespace Domain.Converters
 
             }
             
-            return list;
+            return list.OrderByDescending(x => DateTime.Parse(x.Date)).ToList();
         }
 
 
