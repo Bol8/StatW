@@ -28,5 +28,13 @@ namespace StatisticsWeb.Controllers
 
             return View(leagues);
         }
+
+
+        public ActionResult Leagues()
+        {
+            var leagues = gLeague.list;
+
+            return View(leagues);
+        }
     }
 }

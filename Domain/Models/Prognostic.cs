@@ -13,6 +13,8 @@ namespace Domain.Models
     {
         private FootbalEntities dB;
 
+        public Liga League { get; }
+
         public SelectList HomeTeamList { get; set; }
 
         [Required(ErrorMessage ="Field required")]
@@ -35,7 +37,7 @@ namespace Domain.Models
         {
             dB = new FootbalEntities();
             Results = new List<string> {"1","X","2"};
-
+            League = dB.Ligas.Find(league);
             ResultsList = new SelectList(Results);
             HomeTeamList = new SelectList(dB.Equipos.OrderBy(x => x.Nombre).Where(x => x.Liga.Equals(league)), "Nombre", "Nombre");
             AwayTeamList = new SelectList(dB.Equipos.OrderBy(x => x.Nombre).Where(x => x.Liga.Equals(league)), "Nombre", "Nombre");

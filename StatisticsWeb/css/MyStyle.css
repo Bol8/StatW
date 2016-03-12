@@ -1,46 +1,44 @@
 ﻿body {
 }
 
-.MySidebar{
-    background-color:#282525 !important;
+.MySidebar {
+    background-color: #282525 !important;
 }
 
-.MyContent{
-    margin-top:30px;
+.MyContent {
+    margin-top: 30px;
 }
 
-.PronosticList{
-    padding-top:15px;
+.PronosticList {
+    padding-top: 15px;
 }
 
-.ContainerResults{
-    padding-top:20px;
-    background-color:#393939
-
+.ContainerResults {
+    padding-top: 20px;
+    background-color: #393939;
 }
 
-.MyColumn{
-    text-align:center;
+.MyColumn {
+    text-align: center;
 }
 
-.MyRow{
-     text-align:center;
-
+.MyRow {
+    text-align: center;
 }
 
-.Info{
-    cursor:pointer;
+.Info {
+    cursor: pointer;
 }
 
-.MyImage{
-    width:250px;
-    max-height:150px;
+.MyImage {
+    width: 250px;
+    max-height: 150px;
 }
 
 
 
-.ContentProg{
-    margin-bottom:25px;
+.ContentProg {
+    margin-bottom: 25px;
 }
 
 .Mytooltip {
@@ -51,4 +49,33 @@
     padding: 10px;
     color: white;
     font-size: 12px;
+}
+
+
+.VerticalContainer {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px; /* for vertical scrollbars */
+    height: 12px; /* for horizontal scrollbars */
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+.MyTitle {
+    /*background-color:rgba(135, 91, 91, 0.72)*/
+}
+
+.CenterContainer {
+    margin: 0 auto;
 }

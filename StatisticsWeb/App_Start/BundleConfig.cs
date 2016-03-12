@@ -136,7 +136,8 @@ namespace StatisticsWeb.App_Start
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-custom.css",
                       "~/Content/site.css",
-                       "~/Content/bootstrap-responsive.min.css",
+                      "~/Content/bootstrap-responsive.min.css",
+                      "~/css/dashboard.css",
                       "~/Content/bootstrap-datepicker.css",
                       "~/Content/Gridmvc.css"));
 

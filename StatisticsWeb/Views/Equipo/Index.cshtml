@@ -21,7 +21,7 @@
         <li class="active">@Html.ActionLink("Total", "Index", "Equipo", null, new { @class = "btn btn-sm" })</li>
         <li>@Html.ActionLink("Home", "HomeResults", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
         <li>@Html.ActionLink("Away", "AwayResult", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
-        <li>@Html.ActionLink("Prognostics", "Index", "Statistics", new { league = ViewBag.League }, null)</li>
+        @*<li>@Html.ActionLink("Prognostics", "Index", "Statistics", new { league = ViewBag.League }, null)</li>*@
     </ul>
      
     <table class="table">

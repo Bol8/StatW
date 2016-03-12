@@ -15,7 +15,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryvalunobtrusive")
-    <link href="@Url.Content("~/css/dashboard.css")" rel="stylesheet">
+    @*<link href="@Url.Content("~/css/dashboard.css")" rel="stylesheet">*@
     <link href="~/css/MyStyle.css" rel="stylesheet" />
 
 
@@ -42,24 +42,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    @*<li><a href="#">Dashboard</a></li>*@
-                    @*<li>@Html.ActionLink("Partidos","Index","Partido")</li>
-                    <li>@Html.ActionLink("Equipos", "Index", "Equipo")</li>
-                    <li>@Html.ActionLink("Prognostic", "Index", "Statistics")</li>*@
+                    <li>@Html.ActionLink("Prognostics","Leagues","League")</li>
+                        @*<li>@Html.ActionLink("Partidos","Index","Partido")</li>
+                        <li>@Html.ActionLink("Equipos", "Index", "Equipo")</li>
+                        <li>@Html.ActionLink("Prognostic", "Index", "Statistics")</li>*@
                     @*<li>@Html.ActionLink("Leagues", "Index", "League")</li>*@
                     @*<li><a href="#">Profile</a></li>
-                    <li><a href="#">Help</a></li>*@
+                        <li><a href="#">Help</a></li>*@
                 </ul>
                 @*<form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>*@
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </form>*@
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row" style="margin-top:25px;">
-          
             @RenderBody()
         </div>
     </div>
@@ -68,44 +67,44 @@
     @Scripts.Render("~/bundles/site")
     @RenderSection("scripts", required: false)
 
-   @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
+    @* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>*@
     @*<script src="@Url.Content("~/js/bootstrap.js")"></script>*@
     @*<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
     @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
 
     @*<script type="text/javascript">
-        $(document).ready(function () {
+            $(document).ready(function () {
 
-            $('.masterTooltip').hover(function () {
-                // Hover over code
-                alert("Hola");
-                var title = $(this).attr('title');
+                $('.masterTooltip').hover(function () {
+                    // Hover over code
+                    alert("Hola");
+                    var title = $(this).attr('title');
 
 
-                $(this).data('tipText', title).removeAttr('title');
+                    $(this).data('tipText', title).removeAttr('title');
 
-                //$(this).fadeIn('slow');
+                    //$(this).fadeIn('slow');
 
-                //$('.Mytooltip').show();
+                    //$('.Mytooltip').show();
 
-                $('<p class="Mytooltip"></p>')
-                .text(title)
-                .appendTo('body')
-                .fadeIn('slow');
+                    $('<p class="Mytooltip"></p>')
+                    .text(title)
+                    .appendTo('body')
+                    .fadeIn('slow');
 
-            }, function () {
-                // Hover out code
-                $(this).attr('title', $(this).data('tipText'));
-                $('.Mytooltip').remove();
-            }).mousemove(function (e) {
-                var mousex = e.pageX + 20; //Get X coordinates
-                var mousey = e.pageY - 40; //Get Y coordinates
-                $('.Mytooltip')
-                .css({ top: mousey, left: mousex })
+                }, function () {
+                    // Hover out code
+                    $(this).attr('title', $(this).data('tipText'));
+                    $('.Mytooltip').remove();
+                }).mousemove(function (e) {
+                    var mousex = e.pageX + 20; //Get X coordinates
+                    var mousey = e.pageY - 40; //Get Y coordinates
+                    $('.Mytooltip')
+                    .css({ top: mousey, left: mousex })
+                });
             });
-        });
 
-    </script>*@
+        </script>*@
 
 
 </body>

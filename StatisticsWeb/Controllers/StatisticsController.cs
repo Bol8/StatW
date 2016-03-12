@@ -15,7 +15,8 @@ namespace StatisticsWeb.Controllers
 
         public ActionResult Index(string league)
         {
-            return View(appControl.goPrognostic(league));
+            //return View(appControl.goPrognostic(league));
+            return PartialView(appControl.goPrognostic(league));
         }
 
 
