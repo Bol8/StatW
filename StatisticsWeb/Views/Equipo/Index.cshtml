@@ -2,14 +2,28 @@
 
 
 <div class="MyContent">
+    @*<div class="col-sm-12">
+        <h5>
+            <a class="btn btn-primary  glyphicon glyphicon-pencil" data-toggle="collapse" href="#ContProg" aria-expanded="false" aria-controls="ContProg"> </a>
+            <strong>Prognostics</strong>
+        </h5>
+    </div>*@
+   
+    <div class="collapse" id="ContProg">
+       
+        @*<h1>Hola</h1>*@
+        @*@Html.Action("Index", "Statistics", new { league = ViewBag.League })*@
+    </div>
+
+    <div class="row"></div>
+
     <ul class="nav nav-tabs">
         <li class="active">@Html.ActionLink("Total", "Index", "Equipo", null, new { @class = "btn btn-sm" })</li>
         <li>@Html.ActionLink("Home", "HomeResults", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
         <li>@Html.ActionLink("Away", "AwayResult", "Equipo", new { league = ViewBag.League }, new { @class = "btn btn-sm" })</li>
         <li>@Html.ActionLink("Prognostics", "Index", "Statistics", new { league = ViewBag.League }, null)</li>
-
     </ul>
-
+     
     <table class="table">
         <thead>
             <tr>

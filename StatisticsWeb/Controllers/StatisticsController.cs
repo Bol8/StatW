@@ -33,13 +33,32 @@ namespace StatisticsWeb.Controllers
         {
             if (!Request.IsAjaxRequest()) return HttpNotFound();
             var progResults = new ProgResultList();
+            var Results = new List<string> { "1", "X", "2" };
+            var Dictionary = new Dictionary<string,ProgResultList>();
 
-            progResults.Add(appControl.calculateShare(prognostic));
-            progResults.Add(appControl.calculateShare(prognostic, 8));
-            progResults.Add(appControl.calculateShare(prognostic, 6));
-            progResults.Add(appControl.calculateShare(prognostic, 3));
 
-            return PartialView("Calculate", progResults);
+
+
+            foreach (var result in Results)
+            {
+                prognostic.result = result;
+                progResults = new ProgResultList();
+
+                progResults.Add(appControl.calculateShare(prognostic));
+                progResults.Add(appControl.calculateShare(prognostic, 8));
+                progResults.Add(appControl.calculateShare(prognostic, 6));
+                progResults.Add(appControl.calculateShare(prognostic, 3));
+
+                Dictionary.Add(result, progResults);
+            }
+
+
+            //progResults.Add(appControl.calculateShare(prognostic));
+            //progResults.Add(appControl.calculateShare(prognostic, 8));
+            //progResults.Add(appControl.calculateShare(prognostic, 6));
+            //progResults.Add(appControl.calculateShare(prognostic, 3));
+
+            return PartialView("Calculate", Dictionary);
         }
 
 

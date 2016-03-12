@@ -14,9 +14,13 @@ namespace Domain.Models
         private FootbalEntities dB;
 
         public SelectList HomeTeamList { get; set; }
+
+        [Required(ErrorMessage ="Field required")]
         public string HomeTeam { get; set; }
 
         public SelectList AwayTeamList { get; set; }
+
+        [Required(ErrorMessage = "Field required")]
         public string AwayTeam { get; set; }
 
         public List<string> Results { get; set; }
