@@ -73,7 +73,7 @@ namespace Domain.Manage
 
         public bool exist(DateTime date, string league,string homeTeam)
         {
-            var isOk = db.Partidos.Where(x => x.Date == date && x.Liga.Equals(league) && x.HomeTeam.Equals(homeTeam)).FirstOrDefault();
+            var isOk = db.Partidos.FirstOrDefault(x => x.Date == date && x.Liga.Equals(league) && x.HomeTeam.Equals(homeTeam));
             
             return (isOk != null);
         }
@@ -107,7 +107,7 @@ namespace Domain.Manage
 
         public int Matchs()
         {
-            int matchs = db.Partidos.Where(x => x.HomeTeam.Equals(Team) || x.AwayTeam.Equals(Team)).Count();
+            int matchs = db.Partidos.Count(x => x.HomeTeam.Equals(Team) || x.AwayTeam.Equals(Team));
 
             return matchs;
         }
