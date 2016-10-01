@@ -115,7 +115,7 @@ namespace Domain.Manage
 
         public int Matchs(int numMatchs)
         {
-            int matchs = db.Partidos.Where(x => x.HomeTeam.Equals(Team) || x.AwayTeam.Equals(Team)).Count();
+            int matchs = db.Partidos.Count(x => x.HomeTeam.Equals(Team) || x.AwayTeam.Equals(Team));
 
             return matchs;
         }

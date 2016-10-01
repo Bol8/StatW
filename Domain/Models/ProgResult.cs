@@ -24,5 +24,9 @@ namespace Domain.Models
         [Display(Name = "Share")]
         public decimal Share { get; set; }
 
+
+        [Display(Name = "Share")]
+        public string sShare { get; set; }
+
     }
 }

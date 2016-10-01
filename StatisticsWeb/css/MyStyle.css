@@ -79,3 +79,19 @@
 .CenterContainer {
     margin: 0 auto;
 }
+
+
+.MyContainer{
+    display:flex;
+    background-color:#892e2e;
+     -webkit-flex-flow:row;
+     flex-flow:row;
+    
+}
+
+
+.Contenedor{
+  display:flex;
+  background-color:#393939;
+
+}

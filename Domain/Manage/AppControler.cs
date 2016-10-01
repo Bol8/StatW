@@ -201,6 +201,7 @@ namespace Domain.Manage
 
         private ProgResult getMatchPercent(decimal homePercent, decimal awayPercent,int matchsPlayed)
         {
+            decimal shared = 0;
             var result = ((homePercent + awayPercent) / 2);
             var p = result / 100;
             decimal n = 10;
@@ -208,9 +209,10 @@ namespace Domain.Manage
             if (p != 0)
             {
                  n = 10 / p;
-            } 
+                shared = n / 10;
+            }
 
-            var share = n / 10;
+
 
             ProgResult prog = new ProgResult
             {
@@ -218,7 +220,9 @@ namespace Domain.Manage
                 HomePercent = homePercent,
                 AwayPercent = awayPercent,
                 TotalPercent = result,
-                Share = decimal.Round(share, 1, MidpointRounding.AwayFromZero)
+                Share = decimal.Round(shared, 1, MidpointRounding.AwayFromZero),
+                sShare = decimal.Round(shared, 2, MidpointRounding.ToEven).ToString()
+
             };
 
             return prog;

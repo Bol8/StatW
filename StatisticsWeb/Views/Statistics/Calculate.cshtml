@@ -33,20 +33,28 @@
 
                         @foreach (var prognostic in result.Value.getList())
                         {
-                        <th class="MyRow">
-                            @*<p>@Html.DisplayNameFor(x => prognostic.MatchsPlayed) : @Html.DisplayFor(x => prognostic.MatchsPlayed)</p>*@
-                            <p class="Info masterTooltip" title="Home percent">@Html.Label("Hp") : @Html.DisplayFor(x => prognostic.HomePercent)%</p>
-                            <p class="Info masterTooltip" title="Away percent">@Html.Label("Ap") : @Html.DisplayFor(x => prognostic.AwayPercent)%</p>
-                            <p class="Info masterTooltip" title="Total percent">@Html.Label("Tp") : @Html.DisplayFor(x => prognostic.TotalPercent)%</p>
-                            <p class="Info masterTooltip" >@Html.DisplayNameFor(x => prognostic.Share) : @Html.DisplayFor(x => prognostic.Share)</p>
+                            <th class="MyRow">
+                                @*<p>@Html.DisplayNameFor(x => prognostic.MatchsPlayed) : @Html.DisplayFor(x => prognostic.MatchsPlayed)</p>*@
+                                <p class="Info masterTooltip" title="Home percent">@Html.Label("Hp") : @Html.DisplayFor(x => prognostic.HomePercent)%</p>
+                                <p class="Info masterTooltip" title="Away percent">@Html.Label("Ap") : @Html.DisplayFor(x => prognostic.AwayPercent)%</p>
+                                <p class="Info masterTooltip" title="Total percent">@Html.Label("Tp") : @Html.DisplayFor(x => prognostic.TotalPercent)%</p>
 
-                            @*<p>@Html.DisplayNameFor(x => prognostic.MatchsPlayed) : @Html.DisplayFor(x => prognostic.MatchsPlayed)</p>*@
-                            @*<p>@Html.DisplayNameFor(x => prognostic.HomePercent) : @Html.DisplayFor(x => prognostic.HomePercent)%</p>
-                            <p>@Html.DisplayNameFor(x => prognostic.AwayPercent) : @Html.DisplayFor(x => prognostic.AwayPercent)%</p>
-                            <p>@Html.DisplayNameFor(x => prognostic.TotalPercent) : @Html.DisplayFor(x => prognostic.TotalPercent)%</p>
-                            <p>@Html.DisplayNameFor(x => prognostic.Share) : @Html.DisplayFor(x => prognostic.Share)</p>*@
-                        </th>
-                        }
+                                @{
+                                    if (prognostic.sShare.Equals("0"))
+                                    {
+                                        prognostic.sShare = "N/A";
+                                    }
+                                }
+
+                                <p class="Info masterTooltip">@Html.DisplayNameFor(x => prognostic.sShare) : @Html.DisplayFor(x => prognostic.sShare)</p>
+
+                                @*<p>@Html.DisplayNameFor(x => prognostic.MatchsPlayed) : @Html.DisplayFor(x => prognostic.MatchsPlayed)</p>*@
+                                @*<p>@Html.DisplayNameFor(x => prognostic.HomePercent) : @Html.DisplayFor(x => prognostic.HomePercent)%</p>
+                                    <p>@Html.DisplayNameFor(x => prognostic.AwayPercent) : @Html.DisplayFor(x => prognostic.AwayPercent)%</p>
+                                    <p>@Html.DisplayNameFor(x => prognostic.TotalPercent) : @Html.DisplayFor(x => prognostic.TotalPercent)%</p>
+                                    <p>@Html.DisplayNameFor(x => prognostic.Share) : @Html.DisplayFor(x => prognostic.Share)</p>*@
+                            </th>
+                                    }
                     </tr>
                 }
 
